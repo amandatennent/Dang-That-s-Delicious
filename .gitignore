@@ -78,3 +78,6 @@ config/
 
 # FuseBox cache
 .fusebox/
+
+# VSCode Settings
+.vscode/
