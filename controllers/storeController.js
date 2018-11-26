@@ -29,6 +29,7 @@ exports.updateStore = async (req, res) => {
 	if (req.body.tags === undefined)
 		req.body.tags = [];
 
+	req.body.location.type = 'Point';
 	const store = await Store.findOneAndUpdate({_id: req.params.id}, req.body, {
 		new: true,
 		runValidators: true
