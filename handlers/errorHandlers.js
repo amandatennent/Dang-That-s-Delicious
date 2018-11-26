@@ -34,7 +34,6 @@ exports.flashValidationErrors = (err, req, res, next) => {
 	// validation errors look like
 	const errorKeys = Object.keys(err.errors);
 	errorKeys.forEach(key => req.flash('error', err.errors[key].message));
-	console.log('Error');
 	res.redirect('back');
 };
 
