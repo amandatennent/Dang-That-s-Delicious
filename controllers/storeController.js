@@ -78,7 +78,7 @@ exports.updateStore = async (req, res) => {
 };
 
 exports.getStoreBySlug = async (req, res, next) => {
-	const store = await Store.findOne({ slug: req.params.slug }).populate('author');
+	const store = await Store.findOne({ slug: req.params.slug }).populate('author reviews');
 	if (!store) return next();
 	res.render('store', { title: store.name, store });
 };
@@ -119,7 +119,7 @@ exports.mapStores = async (req, res) => {
 				$maxDistance: 10000 // 10km
 			}
 		}
-	  };
+	};
 
 	const stores = await Store.find(q).select('slug name description location photo').limit(10);
 	res.json(stores);
